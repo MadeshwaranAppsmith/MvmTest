@@ -2,12 +2,13 @@ import { useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { EnvelopeSimple, InstagramLogo, TwitterLogo, LinkedinLogo } from 'phosphor-react'
 
 const socialLinks = [
-  { name: 'Email', url: 'mailto:your.email@example.com', icon: '✉' },
-  { name: 'Instagram', url: 'https://instagram.com', icon: '📷' },
-  { name: 'Twitter', url: 'https://twitter.com', icon: '🐦' },
-  { name: 'LinkedIn', url: 'https://linkedin.com', icon: '💼' },
+  { name: 'Email', url: 'mailto:your.email@example.com', Icon: EnvelopeSimple },
+  { name: 'Instagram', url: 'https://instagram.com', Icon: InstagramLogo },
+  { name: 'Twitter', url: 'https://twitter.com', Icon: TwitterLogo },
+  { name: 'LinkedIn', url: 'https://linkedin.com', Icon: LinkedinLogo },
 ]
 
 const Contact = () => {
@@ -77,25 +78,28 @@ const Contact = () => {
           ref={linksRef}
           className="flex flex-wrap justify-center gap-8 md:gap-12"
         >
-          {socialLinks.map((link, index) => (
-            <motion.a
-              key={link.name}
-              href={link.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group flex flex-col items-center gap-3 text-gray-700 hover:text-black transition-colors"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-100px' }}
-              transition={{ duration: 0.6, delay: 0.1 * index }}
-              whileHover={{ y: -5 }}
-            >
-              <span className="text-3xl md:text-4xl">{link.icon}</span>
-              <span className="text-sm md:text-base font-light tracking-wide">
-                {link.name}
-              </span>
-            </motion.a>
-          ))}
+          {socialLinks.map((link, index) => {
+            const { Icon } = link
+            return (
+              <motion.a
+                key={link.name}
+                href={link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex flex-col items-center gap-3 text-gray-700 hover:text-black transition-colors"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-100px' }}
+                transition={{ duration: 0.6, delay: 0.1 * index }}
+                whileHover={{ y: -5 }}
+              >
+                <Icon size={48} weight="light" className="md:w-14 md:h-14" />
+                <span className="text-sm md:text-base font-light tracking-wide">
+                  {link.name}
+                </span>
+              </motion.a>
+            )
+          })}
         </div>
 
         <motion.div

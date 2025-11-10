@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { gsap } from 'gsap'
+import { List, X } from 'phosphor-react'
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -69,11 +70,11 @@ const Navbar = () => {
         </div>
 
         <button
-          className="md:hidden text-xl"
+          className="md:hidden"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-label="Toggle menu"
         >
-          {isMenuOpen ? '✕' : '☰'}
+          {isMenuOpen ? <X size={28} weight="light" /> : <List size={28} weight="light" />}
         </button>
       </div>
 

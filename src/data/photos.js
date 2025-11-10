@@ -1,48 +1,47 @@
-// Photo data - Replace these with your actual photos
-// You can use local images in the /assets folder or external URLs
+// Ocean-themed photography collection from Unsplash
 
 export const photos = [
   {
     id: 1,
-    src: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=80',
-    alt: 'Mountain landscape',
-    title: 'Mountain Vista',
-    caption: 'A breathtaking view of mountain peaks at sunrise',
+    src: 'https://images.unsplash.com/photo-1505142468610-359e7d316be0?w=1920&q=80&fit=crop',
+    alt: 'Ocean waves at sunset',
+    title: 'Sunset Waves',
+    caption: 'Golden hour illuminates the rolling ocean waves',
   },
   {
     id: 2,
-    src: 'https://images.unsplash.com/photo-1519904981063-b0cf448d479e?w=1920&q=80',
-    alt: 'Ocean waves',
-    title: 'Ocean Dreams',
-    caption: 'Powerful waves crashing against the shore',
+    src: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1920&q=80&fit=crop',
+    alt: 'Aerial view of ocean waves',
+    title: 'From Above',
+    caption: 'Abstract patterns formed by ocean currents',
   },
   {
     id: 3,
-    src: 'https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=1920&q=80',
-    alt: 'Forest path',
-    title: 'Forest Path',
-    caption: 'A serene path through an ancient forest',
+    src: 'https://images.unsplash.com/photo-1505142468610-359e7d316be0?w=1920&q=80&fit=crop',
+    alt: 'Coastal cliffs and ocean',
+    title: 'Coastal Edge',
+    caption: 'Where the land meets the endless sea',
   },
   {
     id: 4,
-    src: 'https://images.unsplash.com/photo-1505142468610-359e7d316be0?w=1920&q=80',
-    alt: 'City skyline',
-    title: 'Urban Lights',
-    caption: 'City lights reflecting in the evening sky',
+    src: 'https://images.unsplash.com/photo-1439405326854-014607f694d7?w=1920&q=80&fit=crop',
+    alt: 'Ocean horizon',
+    title: 'Infinite Blue',
+    caption: 'The meeting point of ocean and sky',
   },
   {
     id: 5,
-    src: 'https://images.unsplash.com/photo-1519681393784-d120267933ba?w=1920&q=80',
-    alt: 'Desert dunes',
-    title: 'Desert Dunes',
-    caption: 'Golden sand dunes under the desert sun',
+    src: 'https://images.unsplash.com/photo-1483683804023-6ccdb62f86ef?w=1920&q=80&fit=crop',
+    alt: 'Turquoise ocean water',
+    title: 'Crystal Clear',
+    caption: 'Transparent turquoise waters revealing the depths',
   },
   {
     id: 6,
-    src: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=80',
-    alt: 'Sunset',
-    title: 'Golden Hour',
-    caption: 'The perfect moment when light meets landscape',
+    src: 'https://images.unsplash.com/photo-1518837695005-2083093ee35b?w=1920&q=80&fit=crop',
+    alt: 'Ocean storm waves',
+    title: 'Raw Power',
+    caption: 'The untamed force of nature in motion',
   },
 ]
 
