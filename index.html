@@ -1,304 +1,109 @@
 <!doctype html>
 <html lang="en">
 	<head>
-		<meta charset="utf-8" />
+		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title>Studio Nela — Design Agency</title>
-		<meta name="description" content="Studio Nela is a minimal design agency crafting brands, products, and digital experiences." />
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
-		<link rel="stylesheet" href="./styles.css" />
+		<meta name="description" content="A Cuberto-inspired creative studio site replica with smooth motion." />
+		<title>Studio — Landing</title>
+		<link rel="preconnect" href="https://cdn.jsdelivr.net" />
+		<link rel="preconnect" href="https://unpkg.com" />
 		<link rel="icon" href="./assets/logo.svg" type="image/svg+xml" />
+		<!-- GSAP and Lenis via CDN -->
+		<script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+		<script defer src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.45/dist/lenis.min.js"></script>
+		<link rel="stylesheet" href="./src/styles/main.css" />
 	</head>
 	<body>
 		<header class="site-header">
-			<div class="container header-inner">
-				<a href="#" class="brand">
-					<img src="./assets/logo.svg" alt="Studio Nela Logo" class="brand-mark" />
-					<span class="brand-name">Studio Nela</span>
+			<div class="container nav" role="navigation" aria-label="Main">
+				<a class="logo" href="./index.html" aria-label="Studio Home">
+					<img src="./assets/logo.svg" alt="" width="22" height="22" />
+					<span>Studio</span>
 				</a>
-				<nav class="nav" aria-label="Primary">
-					<button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu">
-						<span class="nav-toggle-bar"></span>
-						<span class="sr-only">Toggle navigation</span>
-					</button>
-					<ul id="nav-menu" class="nav-list">
-						<li><a href="#featured">Work</a></li>
-						<li><a href="#about">About</a></li>
-						<li><a href="#services">Services</a></li>
-						<li><a href="#process">Process</a></li>
-					</ul>
+				<nav class="nav-links" aria-label="Site">
+					<a href="./src/projects.html" data-magnet data-cursor="View Work">Work</a>
+					<a href="./src/about.html" data-magnet data-cursor="About Us">About</a>
+					<a href="./src/contact.html" class="badge" data-magnet data-cursor="Contact">Contact</a>
 				</nav>
 			</div>
 		</header>
 
-		<main>
-			<section class="hero hero-full reveal" data-reveal="fade-in" style="--delay: 0ms">
-				<div class="container hero-inner">
-					<div class="hero-top">
-						<p class="eyebrow reveal" data-reveal="fade-up" style="--delay: 40ms">Design agency</p>
-						<h1 class="reveal" data-reveal="fade-up" style="--delay: 80ms">AI‑driven, minimal products and brands.</h1>
-					</div>
-					<div class="hero-bottom">
-						<p class="sub reveal" data-reveal="fade-up" style="--delay: 140ms">We build calm, precise experiences for ambitious teams.</p>
-						<div class="hero-cta reveal" data-reveal="fade-up" style="--delay: 180ms">
-							<a class="button primary" href="#featured">See featured</a>
-							<a class="button ghost" href="#services">Our services</a>
-						</div>
-					</div>
+		<main id="lenis-root">
+			<section class="hero container" data-snap>
+				<h1 class="hero-title" aria-label="We craft kinetic brand experiences">
+					<span data-hero-title>
+						<span>We</span> <span>craft</span> <span>kinetic</span> <span>brand</span> <span>experiences</span>
+					</span>
+				</h1>
+				<p class="hero-subtitle" data-hero-subtitle>
+					A creative developer studio specializing in expressive interactions and motion-led storytelling for ambitious
+					brands. This is a conceptual replica inspired by Cuberto—no proprietary content.
+				</p>
+				<div class="hero-cta" data-hero-cta>
+					<a class="btn btn-primary" href="./src/projects.html" data-magnet data-cursor="Explore">Explore Work</a>
+					<a class="btn btn-ghost" href="./src/about.html" data-magnet data-cursor="Our Studio">About the Studio</a>
 				</div>
 			</section>
 
-			<section id="featured" class="section featured">
+			<section class="section" aria-labelledby="home-work">
 				<div class="container">
-					<div class="section-head reveal" data-reveal="fade-up" style="--delay: 0ms">
-						<h2>Featured projects</h2>
-						<p>Distinct, minimal, made to last.</p>
+					<div class="section-header">
+						<div>
+							<div class="kicker">Featured</div>
+							<h2 id="home-work" class="section-title">Selected Work</h2>
+						</div>
+						<a class="btn btn-ghost" href="./src/projects.html" data-magnet data-cursor="All Projects">View all</a>
 					</div>
-					<div class="grid featured-grid">
-						<a class="card card-xl reveal" data-reveal="fade-up" style="--delay: 60ms" href="#" aria-label="Project — Alto Typeface">
-							<div class="thumb thumb-bleed" style="--accent: #ff6b35">
-								<img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=1600&auto=format&fit=crop" loading="lazy" decoding="async" alt="Alto — custom type specimen" />
+					<div class="grid">
+						<a class="card card--wide" href="./src/project/project-alpha.html" aria-label="Project Alpha case study" data-reveal data-magnet data-cursor="Open">
+							<div class="card-media">
+								<img src="./assets/placeholder-wide.svg" alt="" width="1920" height="1080" loading="lazy" />
 							</div>
-							<div class="card-meta">
-								<h3>Alto</h3>
-								<p>Custom type and identity</p>
-							</div>
-						</a>
-						<a class="card reveal" data-reveal="fade-up" style="--delay: 120ms" href="#" aria-label="Project — Koro App">
-							<div class="thumb thumb-bleed" style="--accent: #d97706">
-								<img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=1600&auto=format&fit=crop" loading="lazy" decoding="async" alt="Koro — product UI" />
-							</div>
-							<div class="card-meta">
-								<h3>Koro</h3>
-								<p>Product design and system</p>
+							<div class="card-body">
+								<div>
+									<div class="card-title">Project Alpha</div>
+									<div class="card-meta">Kinetic commerce — Web, Motion</div>
+								</div>
+								<div class="card-pill">2025</div>
 							</div>
 						</a>
-						<a class="card reveal" data-reveal="fade-up" style="--delay: 180ms" href="#" aria-label="Project — Mero Brand">
-							<div class="thumb thumb-bleed" style="--accent: #ea580c">
-								<img src="https://images.unsplash.com/photo-1493421419110-74f4e85ba126?q=80&w=1600&auto=format&fit=crop" loading="lazy" decoding="async" alt="Mero — brand identity" />
+						<a class="card card--half" href="./src/project/project-beta.html" aria-label="Project Beta case study" data-reveal data-magnet data-cursor="Open">
+							<div class="card-media">
+								<img src="./assets/placeholder-wide.svg" alt="" width="1920" height="1080" loading="lazy" />
 							</div>
-							<div class="card-meta">
-								<h3>Mero</h3>
-								<p>Brand identity and website</p>
-							</div>
-						</a>
-						<a class="card reveal" data-reveal="fade-up" style="--delay: 60ms" href="#" aria-label="Project — Sora Commerce">
-							<div class="thumb thumb-bleed" style="--accent: #c2410c">
-								<img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1600&auto=format&fit=crop" loading="lazy" decoding="async" alt="Sora — e‑commerce experience" />
-							</div>
-							<div class="card-meta">
-								<h3>Sora</h3>
-								<p>E‑commerce UX</p>
+							<div class="card-body">
+								<div>
+									<div class="card-title">Project Beta</div>
+									<div class="card-meta">Immersive launch — WebGL, Narrative</div>
+								</div>
+								<div class="card-pill">2025</div>
 							</div>
 						</a>
-						<a class="card reveal" data-reveal="fade-up" style="--delay: 120ms" href="#" aria-label="Project — Hilo Editorial">
-							<div class="thumb thumb-bleed" style="--accent: #f59e0b">
-								<img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=1600&auto=format&fit=crop" loading="lazy" decoding="async" alt="Hilo — editorial design" />
+						<a class="card card--half" href="./src/project/project-gamma.html" aria-label="Project Gamma case study" data-reveal data-magnet data-cursor="Open">
+							<div class="card-media">
+								<img src="./assets/placeholder-wide.svg" alt="" width="1920" height="1080" loading="lazy" />
 							</div>
-							<div class="card-meta">
-								<h3>Hilo</h3>
-								<p>Editorial system</p>
-							</div>
-						</a>
-						<a class="card reveal" data-reveal="fade-up" style="--delay: 180ms" href="#" aria-label="Project — Numa Studio">
-							<div class="thumb thumb-bleed" style="--accent: #fb923c">
-								<img src="https://images.unsplash.com/photo-1504805572947-34fad45aed93?q=80&w=1600&auto=format&fit=crop" loading="lazy" decoding="async" alt="Numa — studio site" />
-							</div>
-							<div class="card-meta">
-								<h3>Numa</h3>
-								<p>Studio website</p>
+							<div class="card-body">
+								<div>
+									<div class="card-title">Project Gamma</div>
+									<div class="card-meta">Editorial motion — CMS, Animation</div>
+								</div>
+								<div class="card-pill">2024</div>
 							</div>
 						</a>
-						<a class="card card-xl reveal" data-reveal="fade-up" style="--delay: 60ms" href="#" aria-label="Project — Luma Fintech">
-							<div class="thumb thumb-bleed" style="--accent: #dc2626">
-								<img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1600&auto=format&fit=crop" loading="lazy" decoding="async" alt="Luma — fintech platform" />
-							</div>
-							<div class="card-meta">
-								<h3>Luma</h3>
-								<p>Fintech platform design</p>
-							</div>
-						</a>
-						<a class="card reveal" data-reveal="fade-up" style="--delay: 120ms" href="#" aria-label="Project — Vela Health">
-							<div class="thumb thumb-bleed" style="--accent: #ff6b35">
-								<img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=1600&auto=format&fit=crop" loading="lazy" decoding="async" alt="Vela — health app" />
-							</div>
-							<div class="card-meta">
-								<h3>Vela</h3>
-								<p>Health and wellness app</p>
-							</div>
-						</a>
-						<a class="card reveal" data-reveal="fade-up" style="--delay: 180ms" href="#" aria-label="Project — Rift Gaming">
-							<div class="thumb thumb-bleed" style="--accent: #ea580c">
-								<img src="https://images.unsplash.com/photo-1552820728-8b83bb6b773f?q=80&w=1600&auto=format&fit=crop" loading="lazy" decoding="async" alt="Rift — gaming brand" />
-							</div>
-							<div class="card-meta">
-								<h3>Rift</h3>
-								<p>Gaming brand and platform</p>
-							</div>
-						</a>
-						<a class="card reveal" data-reveal="fade-up" style="--delay: 60ms" href="#" aria-label="Project — Apex SaaS">
-							<div class="thumb thumb-bleed" style="--accent: #d97706">
-								<img src="https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=1600&auto=format&fit=crop" loading="lazy" decoding="async" alt="Apex — SaaS dashboard" />
-							</div>
-							<div class="card-meta">
-								<h3>Apex</h3>
-								<p>SaaS dashboard redesign</p>
-							</div>
-						</a>
-						<a class="card reveal" data-reveal="fade-up" style="--delay: 120ms" href="#" aria-label="Project — Zora Fashion">
-							<div class="thumb thumb-bleed" style="--accent: #fb923c">
-								<img src="https://images.unsplash.com/photo-1558769132-cb1aea8f8797?q=80&w=1600&auto=format&fit=crop" loading="lazy" decoding="async" alt="Zora — fashion e-commerce" />
-							</div>
-							<div class="card-meta">
-								<h3>Zora</h3>
-								<p>Fashion e-commerce</p>
-							</div>
-						</a>
-						<a class="card reveal" data-reveal="fade-up" style="--delay: 180ms" href="#" aria-label="Project — Forge Agency">
-							<div class="thumb thumb-bleed" style="--accent: #f59e0b">
-								<img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1600&auto=format&fit=crop" loading="lazy" decoding="async" alt="Forge — agency website" />
-							</div>
-							<div class="card-meta">
-								<h3>Forge</h3>
-								<p>Creative agency portfolio</p>
-							</div>
-						</a>
-					</div>
-				</div>
-			</section>
-
-			<section class="marquee-cta" aria-label="Get in touch">
-				<div class="marquee">
-					<div class="track">
-						<span>Let’s build something calm and enduring</span>
-						<span>Let’s build something calm and enduring</span>
-						<span>Let’s build something calm and enduring</span>
-						<span>Let’s build something calm and enduring</span>
-					</div>
-				</div>
-			</section>
-
-			<section id="about" class="section">
-				<div class="container">
-					<div class="section-head reveal" data-reveal="fade-up" style="--delay: 0ms">
-						<h2>About Studio Nela</h2>
-						<p>We're a design studio that believes in the power of simplicity and purposeful creation.</p>
-					</div>
-					<div class="about-wrap">
-						<div class="reveal" data-reveal="fade-up" style="--delay: 60ms">
-							<p style="font-size: 18px; line-height: 1.7; color: var(--text); margin-bottom: 20px;">
-								Founded in 2020, Studio Nela is a boutique design agency specializing in creating elegant,
-								minimal digital experiences for forward-thinking brands. We combine strategic thinking
-								with exceptional craft to build products that stand the test of time.
-							</p>
-							<p style="font-size: 18px; line-height: 1.7; color: var(--muted); margin-bottom: 20px;">
-								Our team of designers, strategists, and developers work closely with ambitious founders
-								and teams to transform complex ideas into clear, beautiful solutions. Every project is
-								an opportunity to push boundaries while maintaining a calm, focused aesthetic.
-							</p>
-							<p style="font-size: 18px; line-height: 1.7; color: var(--muted);">
-								We've partnered with startups, Fortune 500 companies, and everything in between —
-								helping them establish their visual identity, design digital products, and create
-								experiences that resonate with their audiences.
-							</p>
-						</div>
-						<div class="reveal" data-reveal="fade-up" style="--delay: 120ms">
-							<div style="background: var(--alt); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px;">
-								<h3 style="margin: 0 0 16px 0; font-size: 18px;">Our Values</h3>
-								<ul class="list" style="display: grid; gap: 12px;">
-									<li><strong style="color: var(--accent);">Clarity over complexity</strong> — We believe great design simplifies.</li>
-									<li><strong style="color: var(--accent);">Craft matters</strong> — Every pixel, every word, every interaction counts.</li>
-									<li><strong style="color: var(--accent);">Long-term thinking</strong> — We build systems that scale and endure.</li>
-									<li><strong style="color: var(--accent);">Collaborative spirit</strong> — The best work happens when we work together.</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
-
-			<section id="services" class="section alt">
-				<div class="container">
-					<div class="section-head reveal" data-reveal="fade-up" style="--delay: 0ms">
-						<h2>Services</h2>
-						<p>From strategy to systems, we design with precision and purpose.</p>
-					</div>
-					<div class="grid services-grid">
-						<div class="service reveal" data-reveal="fade-up" style="--delay: 60ms">
-							<h3>Brand Identity</h3>
-							<p>Naming, logotypes, typography, color systems, and comprehensive brand guidelines that scale with your business and maintain consistency across all touchpoints.</p>
-						</div>
-						<div class="service reveal" data-reveal="fade-up" style="--delay: 120ms">
-							<h3>Product Design</h3>
-							<p>User research, experience architecture, interface design, prototyping, and design systems for web and mobile applications that users love.</p>
-						</div>
-						<div class="service reveal" data-reveal="fade-up" style="--delay: 180ms">
-							<h3>Websites</h3>
-							<p>Marketing sites, landing pages, and corporate websites built for speed, clarity, and conversion. Custom CMS integration and responsive design included.</p>
-						</div>
-						<div class="service reveal" data-reveal="fade-up" style="--delay: 240ms">
-							<h3>Art Direction</h3>
-							<p>Photography direction, motion design, illustration, and visual language development that elevates your brand and creates memorable experiences.</p>
-						</div>
-						<div class="service reveal" data-reveal="fade-up" style="--delay: 300ms">
-							<h3>Strategy & Consulting</h3>
-							<p>Brand positioning, competitive analysis, user research, and design audits to ensure your digital presence aligns with business goals.</p>
-						</div>
-						<div class="service reveal" data-reveal="fade-up" style="--delay: 360ms">
-							<h3>Development</h3>
-							<p>Front-end development, animation implementation, performance optimization, and technical partnerships to bring designs to life with precision.</p>
-						</div>
-					</div>
-				</div>
-			</section>
-
-			<section id="process" class="section">
-				<div class="container">
-					<div class="section-head reveal" data-reveal="fade-up" style="--delay: 0ms">
-						<h2>Our Process</h2>
-						<p>A structured approach that delivers exceptional results.</p>
-					</div>
-					<div class="grid services-grid">
-						<div class="service reveal" data-reveal="fade-up" style="--delay: 60ms">
-							<h3>01. Discovery</h3>
-							<p>We start by understanding your goals, audience, and competitive landscape through research and stakeholder interviews.</p>
-						</div>
-						<div class="service reveal" data-reveal="fade-up" style="--delay: 120ms">
-							<h3>02. Strategy</h3>
-							<p>Define positioning, create user personas, map journeys, and establish a clear creative direction.</p>
-						</div>
-						<div class="service reveal" data-reveal="fade-up" style="--delay: 180ms">
-							<h3>03. Design</h3>
-							<p>Craft high-fidelity designs, interactive prototypes, and comprehensive design systems with iterative feedback.</p>
-						</div>
-						<div class="service reveal" data-reveal="fade-up" style="--delay: 240ms">
-							<h3>04. Delivery</h3>
-							<p>Hand off polished assets, collaborate with developers, and ensure the final product matches our vision.</p>
-						</div>
 					</div>
 				</div>
 			</section>
 		</main>
 
 		<footer class="site-footer">
-			<div class="container footer-inner">
-				<div class="footer-brand">
-					<img src="./assets/logo.svg" alt="" aria-hidden="true" />
-					<span>Studio Nela</span>
-				</div>
-				<ul class="footer-links">
-					<li><a href="#featured">Work</a></li>
-					<li><a href="#about">About</a></li>
-					<li><a href="#services">Services</a></li>
-					<li><a href="#process">Process</a></li>
-				</ul>
-				<p class="footer-copy">© <span id="year"></span> Studio Nela. All rights reserved.</p>
+			<div class="container">
+				<div class="kicker">© Studio 2025</div>
+				<div>Inspired by the quality of motion at Cuberto, reimagined for demo.</div>
 			</div>
 		</footer>
 
-		<script src="./script.js"></script>
+		<script type="module" src="./src/scripts/app.js"></script>
 	</body>
 </html>
 
