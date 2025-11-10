@@ -6,7 +6,9 @@
       "Bash(git branch:*)",
       "Bash(git push:*)",
       "Bash(git --version:*)",
-      "Bash(xcode-select --install:*)"
+      "Bash(xcode-select --install:*)",
+      "Bash(gh:*)",
+      "Bash(git commit:*)"
     ],
     "deny": [],
     "ask": []
