@@ -1,12 +1,12 @@
-/* Design tokens (default: dark mode) */
+/* Design tokens (warm sunset theme) */
 :root {
-	--bg: #0b0c0f;
-	--text: #eef2ff;
-	--muted: #9aa2b2;
-	--line: #1f2430;
-	--alt: #0f1218;
-	--accent: #e5e7eb;
-	--brand: #e5e7eb;
+	--bg: #1a0f0a;
+	--text: #fff5ed;
+	--muted: #d4a574;
+	--line: #3d2418;
+	--alt: #251509;
+	--accent: #ff6b35;
+	--brand: #ff6b35;
 
 	--radius: 12px;
 	--container: 1120px;
@@ -14,16 +14,16 @@
 	--font: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, 'Apple Color Emoji', 'Segoe UI Emoji';
 }
 
-/* Optional: respect users explicitly preferring light mode */
+/* Optional: light sunset variant for users preferring light mode */
 @media (prefers-color-scheme: light) {
 	:root {
-		--bg: #ffffff;
-		--text: #0b0b0b;
-		--muted: #6b7280;
-		--line: #e5e7eb;
-		--alt: #f8fafc;
-		--accent: #111827;
-		--brand: #111827;
+		--bg: #fff9f5;
+		--text: #1a0f0a;
+		--muted: #a0522d;
+		--line: #ffd4ba;
+		--alt: #fff5ed;
+		--accent: #ff6b35;
+		--brand: #ff6b35;
 	}
 }
 
@@ -430,7 +430,7 @@ img {
 }
 .button.primary {
 	background: var(--brand);
-	color: #ffffff;
+	color: #1a0f0a;
 	border-color: var(--brand);
 }
 .button.ghost {
