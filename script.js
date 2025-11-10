@@ -40,4 +40,29 @@
 	if (year) year.textContent = String(new Date().getFullYear());
 })();
 
+// Scroll reveal
+(function () {
+	const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+	const items = Array.from(document.querySelectorAll('.reveal'));
+	if (items.length === 0) return;
+	if (prefersReduced || !('IntersectionObserver' in window)) {
+		items.forEach((el) => el.classList.add('in'));
+		return;
+	}
+
+	const observer = new IntersectionObserver((entries) => {
+		for (const entry of entries) {
+			if (entry.isIntersecting) {
+				const el = entry.target;
+				el.classList.add('in');
+				observer.unobserve(el);
+			}
+		}
+	}, { root: null, rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
+
+	// Optional: ensure initial in-view elements animate on load
+	requestAnimationFrame(() => {
+		items.forEach((el) => observer.observe(el));
+	});
+})();
 
