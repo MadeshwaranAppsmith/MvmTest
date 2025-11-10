@@ -1,19 +1,20 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { EnvelopeSimple, InstagramLogo, TwitterLogo, LinkedinLogo } from 'phosphor-react'
 
 const socialLinks = [
-  { name: 'Email', url: 'mailto:your.email@example.com', Icon: EnvelopeSimple },
-  { name: 'Instagram', url: 'https://instagram.com', Icon: InstagramLogo },
-  { name: 'Twitter', url: 'https://twitter.com', Icon: TwitterLogo },
-  { name: 'LinkedIn', url: 'https://linkedin.com', Icon: LinkedinLogo },
+  { name: 'Email', url: 'mailto:your.email@example.com', Icon: EnvelopeSimple, weight: 'light' },
+  { name: 'Instagram', url: 'https://instagram.com', Icon: InstagramLogo, weight: 'light' },
+  { name: 'Twitter', url: 'https://twitter.com', Icon: TwitterLogo, weight: 'light' },
+  { name: 'LinkedIn', url: 'https://linkedin.com', Icon: LinkedinLogo, weight: 'light' },
 ]
 
 const Contact = () => {
   const containerRef = useRef(null)
   const linksRef = useRef(null)
+  const [hoveredIcon, setHoveredIcon] = useState(null)
 
   useEffect(() => {
     const container = containerRef.current
@@ -80,6 +81,7 @@ const Contact = () => {
         >
           {socialLinks.map((link, index) => {
             const { Icon } = link
+            const isHovered = hoveredIcon === link.name
             return (
               <motion.a
                 key={link.name}
@@ -92,8 +94,10 @@ const Contact = () => {
                 viewport={{ once: true, margin: '-100px' }}
                 transition={{ duration: 0.6, delay: 0.1 * index }}
                 whileHover={{ y: -5 }}
+                onMouseEnter={() => setHoveredIcon(link.name)}
+                onMouseLeave={() => setHoveredIcon(null)}
               >
-                <Icon size={48} weight="light" className="md:w-14 md:h-14" />
+                <Icon size={48} weight={isHovered ? 'fill' : 'light'} className="md:w-14 md:h-14 transition-all duration-300" />
                 <span className="text-sm md:text-base font-light tracking-wide">
                   {link.name}
                 </span>

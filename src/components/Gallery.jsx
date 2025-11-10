@@ -26,21 +26,7 @@ const Gallery = () => {
         },
       })
 
-      // Fade in caption
-      gsap.fromTo(
-        section.querySelector('.gallery-caption'),
-        { opacity: 0, y: 50 },
-        {
-          opacity: 1,
-          y: 0,
-          scrollTrigger: {
-            trigger: section,
-            start: 'top 80%',
-            end: 'top 50%',
-            scrub: true,
-          },
-        }
-      )
+      // Caption animation removed - no titles in gallery
 
       // Background color transition on section
       if (index % 2 === 0) {
@@ -126,20 +112,6 @@ const Gallery = () => {
                   />
                   <div className="absolute inset-0 bg-black/30" />
                 </motion.div>
-                <motion.div
-                  className="relative z-10 absolute bottom-8 left-1/2 transform -translate-x-1/2 text-center px-4 w-full"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: '-100px' }}
-                  transition={{ duration: 0.8, delay: 0.2 }}
-                >
-                  <h3 className="text-xl md:text-3xl font-light text-white mb-2 drop-shadow-lg">
-                    {currentPhoto.title}
-                  </h3>
-                  <p className="text-xs md:text-sm font-light text-white/90 drop-shadow-md gallery-caption">
-                    {currentPhoto.caption}
-                  </p>
-                </motion.div>
               </div>
 
               {/* Second portrait photo */}
@@ -159,20 +131,6 @@ const Gallery = () => {
                     decoding="async"
                   />
                   <div className="absolute inset-0 bg-black/30" />
-                </motion.div>
-                <motion.div
-                  className="relative z-10 absolute bottom-8 left-1/2 transform -translate-x-1/2 text-center px-4 w-full"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: '-100px' }}
-                  transition={{ duration: 0.8, delay: 0.4 }}
-                >
-                  <h3 className="text-xl md:text-3xl font-light text-white mb-2 drop-shadow-lg">
-                    {nextPhoto.title}
-                  </h3>
-                  <p className="text-xs md:text-sm font-light text-white/90 drop-shadow-md gallery-caption">
-                    {nextPhoto.caption}
-                  </p>
                 </motion.div>
               </div>
             </div>
@@ -218,20 +176,6 @@ const Gallery = () => {
               <div className="absolute inset-0 bg-black/20" />
             </motion.div>
 
-            <motion.div
-              className="relative z-10 text-center px-6 md:px-12 max-w-4xl mx-auto"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-100px' }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-            >
-              <h2 className="text-3xl md:text-5xl lg:text-6xl font-light text-white mb-4 drop-shadow-lg">
-                {currentPhoto.title}
-              </h2>
-              <p className="text-sm md:text-base font-light text-white/90 drop-shadow-md gallery-caption">
-                {currentPhoto.caption}
-              </p>
-            </motion.div>
 
             {/* Scroll indicator */}
             {i < photos.length - 1 && (

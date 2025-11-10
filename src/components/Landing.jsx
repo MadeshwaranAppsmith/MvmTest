@@ -12,27 +12,37 @@ const Landing = () => {
     const subtitle = subtitleRef.current
 
     if (title && subtitle) {
-      gsap.to(title, {
-        opacity: 0,
-        y: -50,
-        scrollTrigger: {
-          trigger: title,
-          start: 'top top',
-          end: '+=300',
-          scrub: true,
-        },
-      })
+      // Animate title on scroll with proper reset
+      gsap.fromTo(title,
+        { opacity: 1, y: 0 },
+        {
+          opacity: 0,
+          y: -50,
+          scrollTrigger: {
+            trigger: title,
+            start: 'top top',
+            end: '+=300',
+            scrub: true,
+            toggleActions: 'play reverse play reverse',
+          },
+        }
+      )
 
-      gsap.to(subtitle, {
-        opacity: 0,
-        y: -30,
-        scrollTrigger: {
-          trigger: subtitle,
-          start: 'top top',
-          end: '+=300',
-          scrub: true,
-        },
-      })
+      // Animate subtitle on scroll with proper reset
+      gsap.fromTo(subtitle,
+        { opacity: 1, y: 0 },
+        {
+          opacity: 0,
+          y: -30,
+          scrollTrigger: {
+            trigger: subtitle,
+            start: 'top top',
+            end: '+=300',
+            scrub: true,
+            toggleActions: 'play reverse play reverse',
+          },
+        }
+      )
     }
 
     return () => {
@@ -46,11 +56,11 @@ const Landing = () => {
 
   return (
     <section className="relative w-full h-screen flex items-center justify-center overflow-hidden">
-      {/* Dark ocean background image */}
+      {/* Dark wedding background image */}
       <div className="absolute inset-0 z-0">
         <img
-          src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&q=80&fit=crop"
-          alt="Dark ocean background"
+          src="https://images.unsplash.com/photo-1519741497674-611481863552?w=1920&q=80&fit=crop"
+          alt="Indian wedding background"
           className="w-full h-full object-cover"
           loading="eager"
           fetchPriority="high"
@@ -75,7 +85,7 @@ const Landing = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.3, ease: 'easeOut' }}
         >
-          Capturing the soul of the ocean, one wave at a time
+          Capturing timeless moments of love and celebration
         </motion.p>
       </div>
     </section>
