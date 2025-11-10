@@ -66,3 +66,34 @@
 	});
 })();
 
+// Card hover parallax (subtle)
+(function () {
+	const cards = document.querySelectorAll('.card');
+	if (!cards.length) return;
+	const maxTilt = 4; // degrees
+	function handleMove(e) {
+		const card = e.currentTarget;
+		const rect = card.getBoundingClientRect();
+		const x = e.clientX - rect.left;
+		const y = e.clientY - rect.top;
+		const px = (x / rect.width) - 0.5;
+		const py = (y / rect.height) - 0.5;
+		card.style.transform = `perspective(800px) rotateX(${(-py * maxTilt).toFixed(2)}deg) rotateY(${(px * maxTilt).toFixed(2)}deg) translateY(-2px)`;
+	}
+	function reset(e) {
+		e.currentTarget.style.transform = '';
+	}
+	cards.forEach((c) => {
+		c.addEventListener('mousemove', handleMove);
+		c.addEventListener('mouseleave', reset);
+	});
+})();
+
+// Seamless marquee duplication to avoid gaps (no dependency)
+(function () {
+	const track = document.querySelector('.marquee .track');
+	if (!track) return;
+	// Duplicate content to ensure continuous loop
+	track.innerHTML = track.innerHTML + track.innerHTML;
+})();
+
