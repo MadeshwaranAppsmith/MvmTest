@@ -5,7 +5,8 @@
       "Bash(git remote:*)",
       "Bash(git branch:*)",
       "Bash(git push:*)",
-      "Bash(git --version:*)"
+      "Bash(git --version:*)",
+      "Bash(xcode-select --install:*)"
     ],
     "deny": [],
     "ask": []
