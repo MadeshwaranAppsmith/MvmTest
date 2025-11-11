@@ -1,14 +1,10 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { photos as fallbackPhotos } from '../data/photos'
 import { getInstagramMedia, getStoredAccessToken } from '../services/instagram'
 
 const Gallery = () => {
-  const [currentIndex, setCurrentIndex] = useState(0)
   const [photos, setPhotos] = useState(fallbackPhotos)
-  const sectionsRef = useRef([])
 
   // Fetch Instagram photos on mount
   useEffect(() => {
@@ -50,171 +46,37 @@ const Gallery = () => {
     loadInstagramPhotos()
   }, [])
 
-  useEffect(() => {
-    const sections = sectionsRef.current
-
-    sections.forEach((section, index) => {
-      if (!section) return
-
-      // Parallax effect on image
-      gsap.to(section.querySelector('.gallery-image'), {
-        scale: 1.1,
-        scrollTrigger: {
-          trigger: section,
-          start: 'top top',
-          end: 'bottom top',
-          scrub: true,
-        },
-      })
-
-      // Caption animation removed - no titles in gallery
-
-      // Background color transition on section
-      if (index % 2 === 0) {
-        gsap.to(section, {
-          backgroundColor: '#fafafa',
-          scrollTrigger: {
-            trigger: section,
-            start: 'top 50%',
-            end: 'bottom 50%',
-            scrub: true,
-          },
-        })
-      } else {
-        gsap.to(section, {
-          backgroundColor: '#ffffff',
-          scrollTrigger: {
-            trigger: section,
-            start: 'top 50%',
-            end: 'bottom 50%',
-            scrub: true,
-          },
-        })
-      }
-    })
-
-    // Track current section
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY + window.innerHeight / 2
-      const newIndex = Math.floor(scrollPosition / window.innerHeight)
-      if (newIndex >= 0 && newIndex < photos.length && newIndex !== currentIndex) {
-        setCurrentIndex(newIndex)
-      }
-    }
-
-    window.addEventListener('scroll', handleScroll)
-    return () => {
-      window.removeEventListener('scroll', handleScroll)
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill())
-    }
-  }, [currentIndex])
-
-  // Group portrait photos in pairs
-  const renderPhotos = () => {
-    const result = []
-    let i = 0
-
-    while (i < photos.length) {
-      const currentPhoto = photos[i]
-      const nextPhoto = photos[i + 1]
-
-      // Check if current and next photos are both portrait
-      if (
-        currentPhoto.orientation === 'portrait' &&
-        nextPhoto &&
-        nextPhoto.orientation === 'portrait'
-      ) {
-        // Render two portrait photos side by side
-        result.push(
-          <div
-            key={`pair-${currentPhoto.id}-${nextPhoto.id}`}
-            ref={(el) => (sectionsRef.current[i] = el)}
-            className={`relative w-full h-screen flex items-center justify-center overflow-hidden ${
-              i % 2 === 0 ? 'bg-white' : 'bg-gray-50'
-            }`}
-          >
-            <div className="w-full h-full flex flex-col md:flex-row gap-4 p-4">
-              {/* First portrait photo */}
-              <div className="flex-1 relative overflow-hidden group">
-                <motion.div
-                  className="absolute inset-0 gallery-image"
-                  initial={{ opacity: 0, scale: 1 }}
-                  whileInView={{ opacity: 1 }}
-                  viewport={{ once: true, margin: '-100px' }}
-                  transition={{ duration: 0.8 }}
-                >
-                  <img
-                    src={currentPhoto.src}
-                    alt={currentPhoto.alt}
-                    className="w-full h-full object-cover"
-                    loading={i < 2 ? 'eager' : 'lazy'}
-                    decoding="async"
-                    fetchPriority={i < 2 ? 'high' : 'low'}
-                  />
-                  <div className="absolute inset-0 bg-black/30" />
-                </motion.div>
-              </div>
-
-              {/* Second portrait photo */}
-              <div className="flex-1 relative overflow-hidden group">
-                <motion.div
-                  className="absolute inset-0 gallery-image"
-                  initial={{ opacity: 0, scale: 1 }}
-                  whileInView={{ opacity: 1 }}
-                  viewport={{ once: true, margin: '-100px' }}
-                  transition={{ duration: 0.8, delay: 0.2 }}
-                >
-                  <img
-                    src={nextPhoto.src}
-                    alt={nextPhoto.alt}
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  <div className="absolute inset-0 bg-black/30" />
-                </motion.div>
-              </div>
-            </div>
-          </div>
-        )
-        i += 2 // Skip both photos
-      } else {
-        // Render single photo (landscape or single portrait)
-        result.push(
-          <div
-            key={currentPhoto.id}
-            ref={(el) => (sectionsRef.current[i] = el)}
-            className={`relative w-full h-screen flex items-center justify-center overflow-hidden ${
-              i % 2 === 0 ? 'bg-white' : 'bg-gray-50'
-            }`}
-          >
+  return (
+    <section id="gallery" className="relative py-12 md:py-20 px-4 md:px-8 bg-white">
+      {/* Grid Container - Masonry style using CSS columns */}
+      <div className="max-w-7xl mx-auto">
+        <div className="columns-1 md:columns-2 lg:columns-3 gap-4 md:gap-6 space-y-4 md:space-y-6">
+          {photos.map((photo, index) => (
             <motion.div
-              className="absolute inset-0 gallery-image"
-              initial={{ opacity: 0, scale: 1 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true, margin: '-100px' }}
-              transition={{ duration: 0.8 }}
+              key={photo.id}
+              className="break-inside-avoid mb-4 md:mb-6"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-50px' }}
+              transition={{ duration: 0.6, delay: index * 0.05 }}
             >
-              <img
-                src={currentPhoto.src}
-                alt={currentPhoto.alt}
-                className="w-full h-full object-cover"
-                loading={i < 2 ? 'eager' : 'lazy'}
-                decoding="async"
-                fetchPriority={i < 2 ? 'high' : 'low'}
-              />
-              <div className="absolute inset-0 bg-black/20" />
+              <div className="relative overflow-hidden rounded-lg shadow-md hover:shadow-2xl transition-shadow duration-300 group">
+                <img
+                  src={photo.src}
+                  alt={photo.alt}
+                  className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
+                  loading={index < 6 ? 'eager' : 'lazy'}
+                  decoding="async"
+                  fetchPriority={index < 6 ? 'high' : 'low'}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </div>
             </motion.div>
-          </div>
-        )
-        i += 1
-      }
-    }
-
-    return result
-  }
-
-  return <section id="gallery" className="relative">{renderPhotos()}</section>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
 }
 
 export default Gallery
