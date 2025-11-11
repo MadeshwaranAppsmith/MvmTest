@@ -71,7 +71,7 @@ const Landing = () => {
       <div className="relative z-10 text-center px-6 md:px-12">
         <motion.h1
           ref={titleRef}
-          className="text-5xl md:text-7xl lg:text-8xl font-light tracking-tight mb-4 text-gray-900"
+          className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-4 text-gray-900"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: 'easeOut' }}

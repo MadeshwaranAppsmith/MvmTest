@@ -35,7 +35,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <motion.a
           href="#"
-          className="text-xl md:text-2xl font-light tracking-tight cursor-pointer"
+          className="text-xl md:text-2xl font-bold tracking-tight cursor-pointer"
           onClick={(e) => {
             e.preventDefault()
             window.scrollTo({ top: 0, behavior: 'smooth' })
