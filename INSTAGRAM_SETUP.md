@@ -1,11 +1,11 @@
 # Instagram Integration Setup Guide
 
-This guide will help you set up Instagram Basic Display API to automatically fetch photos from your Instagram account and display them in the gallery.
+This guide will help you set up Instagram Basic Display API to automatically fetch photos from the Instagram account [@stories_by_karthi](https://www.instagram.com/stories_by_karthi/) and display them in the gallery.
 
 ## Overview
 
 Once configured, your portfolio will:
-- Automatically fetch up to 20 recent photos from your Instagram account
+- Automatically fetch up to 20 recent photos from @stories_by_karthi
 - Update the gallery every time the page loads
 - Fall back to manual photos if Instagram is not connected
 - Auto-detect portrait vs landscape orientation
@@ -53,13 +53,13 @@ Once configured, your portfolio will:
 
 1. In Instagram Basic Display settings, scroll to **"Instagram Testers"**
 2. Click **"Add Instagram Testers"**
-3. Enter your Instagram username
+3. Enter the Instagram username: **`stories_by_karthi`**
 4. Click **"Submit"**
 
-5. **On your phone:**
+5. **On your phone (logged in as @stories_by_karthi):**
    - Open Instagram app
    - Go to **Settings** → **Account** → **Apps and Websites**
-   - Under **Tester Invites**, accept the invitation
+   - Under **Tester Invites**, accept the invitation from your app
 
 ## Step 5: Get App Credentials
 
@@ -169,7 +169,8 @@ If you want to temporarily use manual photos instead of Instagram:
 - **Never commit `.env` file to git** (it's in `.gitignore`)
 - App Secret should be kept private
 - Access tokens are stored in browser localStorage (user's device only)
-- Each user who wants to connect must be added as an Instagram Tester
+- Only the Instagram account `@stories_by_karthi` is configured to connect
+- Each additional user who wants to connect must be added as an Instagram Tester
 
 ## Updating Photos
 
